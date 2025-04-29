@@ -153,7 +153,7 @@ def load_hf_lm_and_tokenizer(
 
     if not tokenizer_name_or_path:
         tokenizer_name_or_path = model_name_or_path
-    tokenizer = AutoTokenizer.from_pretrained(tokenizer_name_or_path, use_fast=use_fast_tokenizer, padding_side=padding_side, trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(tokenizer_name_or_path, use_fast=use_fast_tokenizer, padding_side=padding_side, trust_remote_code=True, cache_dir = "/root/autodl-tmp/models")
     # tokenizer = AutoTokenizer.from_pretrained(tokenizer_name_or_path, legacy=False, use_fast=use_fast_tokenizer, padding_side=padding_side, trust_remote_code=True)
 
     # set pad token to eos token if pad token is not set
@@ -191,7 +191,8 @@ def load_hf_lm_and_tokenizer(
                                                      torch_dtype=torch.float16,
                                                      device_map=device_map,
                                                      trust_remote_code=True,
-                                                     use_safetensors=use_safetensors)
+                                                     use_safetensors=use_safetensors,
+                                                    cache_dir = "/root/autodl-tmp/models",)
         if torch.cuda.is_available():
             model = model.cuda()
         if load_in_half:

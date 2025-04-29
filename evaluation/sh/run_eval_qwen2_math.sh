@@ -1,36 +1,21 @@
 # Evaluate Qwen2.5-Math-Instruct
 PROMPT_TYPE="qwen25-math-cot"
-
+SHOTS=0
 # Qwen2.5-Math-1.5B-Instruct
 export CUDA_VISIBLE_DEVICES="0"
-MODEL_NAME_OR_PATH="Qwen/Qwen2.5-Math-1.5B-Instruct"
-bash sh/eval.sh $PROMPT_TYPE $MODEL_NAME_OR_PATH
-
-# Qwen2.5-Math-7B-Instruct
+MODEL_NAME_OR_PATH="meta-llama/Llama-3.1-8B-Instruct"
+bash sh/eval.sh $PROMPT_TYPE $MODEL_NAME_OR_PATH $SHOTS
+SHOTS=1
 export CUDA_VISIBLE_DEVICES="0"
-MODEL_NAME_OR_PATH="Qwen/Qwen2.5-Math-7B-Instruct"
-bash sh/eval.sh $PROMPT_TYPE $MODEL_NAME_OR_PATH
+MODEL_NAME_OR_PATH="meta-llama/Llama-3.1-8B-Instruct"
+bash sh/eval.sh $PROMPT_TYPE $MODEL_NAME_OR_PATH $SHOTS
 
-# Qwen2.5-Math-72B-Instruct
-export CUDA_VISIBLE_DEVICES="0,1,2,3"
-MODEL_NAME_OR_PATH="Qwen/Qwen2.5-Math-72B-Instruct"
-bash sh/eval.sh $PROMPT_TYPE $MODEL_NAME_OR_PATH
-
-
-# Evaluate Qwen2-Math-Instruct
-PROMPT_TYPE="qwen-boxed"
-
-# Qwen2-Math-1.5B-Instruct
+SHOTS=3
+# Qwen2.5-Math-1.5B-Instruct
 export CUDA_VISIBLE_DEVICES="0"
-MODEL_NAME_OR_PATH="Qwen/Qwen2-Math-1.5B-Instruct"
-bash sh/eval.sh $PROMPT_TYPE $MODEL_NAME_OR_PATH
-
-# Qwen2-Math-7B-Instruct
+MODEL_NAME_OR_PATH="meta-llama/Llama-3.1-8B-Instruct"
+bash sh/eval.sh $PROMPT_TYPE $MODEL_NAME_OR_PATH $SHOTS
+SHOTS=8
 export CUDA_VISIBLE_DEVICES="0"
-MODEL_NAME_OR_PATH="Qwen/Qwen2-Math-7B-Instruct"
-bash sh/eval.sh $PROMPT_TYPE $MODEL_NAME_OR_PATH
-
-# Qwen2-Math-72B-Instruct
-export CUDA_VISIBLE_DEVICES="0,1,2,3"
-MODEL_NAME_OR_PATH="Qwen/Qwen2-Math-72B-Instruct"
-bash sh/eval.sh $PROMPT_TYPE $MODEL_NAME_OR_PATH
+MODEL_NAME_OR_PATH="meta-llama/Llama-3.1-8B-Instruct"
+bash sh/eval.sh $PROMPT_TYPE $MODEL_NAME_OR_PATH $SHOTS
